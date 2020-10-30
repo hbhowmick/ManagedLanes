@@ -160,10 +160,10 @@ span {
 .justify-content-md-center {
   margin-left: 0px;
 }
-#popupContainer.esri-widget {
+/* #leftContent.esri-widget {
   display: block;
   background-color: transparent;
-}
+} */
 .esri-legend--stacked {
   min-width: 50px;
 }
@@ -280,71 +280,52 @@ span {
 #viewDiv {
   height: 100%;
 }
-#closePopup-btn, #reopenPopup-btn {
-  color: #464648;
-  height: 4%;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: #e6e6e6;
-  text-align: center;
-  padding-top: 5px;
-}
-#closePopup-btn {
-  display: none;
-}
-#reopenPopup-btn {
-  display: none;
-}
-#projectModal {
-  display: none;
-  -webkit-animation-name: projectDesc; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 0.25s; /* Safari 4.0 - 8.0 */
-  -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+#popupModal {
+  /* -webkit-animation-name: projectDesc;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-direction: reverse;
   animation-name: projectDesc;
   animation-duration: 0.25s;
-  animation-direction: reverse;
+  animation-direction: reverse; */
   background-color: #c1c1c1;
-  height: 37%;
+  /* height: 37%; */
+  display: none;
 }
-#projectContent {
+#togglePopupBtn {
+  background-color: #e6e6e6;
+  color: #464648;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  height: 10%;
+  padding-top: 5px;
+}
+span.open {
+  display: none;
+}
+#popupModalRow {
   margin: 0px auto;
-  height: 100%;
+  height: 90%;
 }
 #popupContent {
   position: relative;
   width: 100%;
   height: 100%;
 }
-#closePopup-btn:hover,
-#closePopup-btn:focus,
-#reopenPopup-btn:hover,
-#reopenPopup-btn:focus  {
+#togglePopupBtn:hover,
+#togglePopupBtn:focus  {
   color: rgba(210,210,210,1);
   text-decoration: none;
   cursor: pointer;
 }
-#popupDock {
+#leftPopup {
   display: block;
   padding: 15px;
   height: 100%;
   background-color: #e6e6e6;
+  background-color: blue;
 }
-/* #navigationArrows {
-  display: inline-block;
-  width: 100%;
-  float: right;
-  padding-bottom: 8px;
-  text-align: right;
-}
-.navArrows {
-  display: inline-block;
-  padding: 0px 3px;
-  font-weight: bold;
-}
-.arrow:hover {
-  color: grey;
-} */
-#popupContainer {
+.sideContent {
   width: 100%;
   height: 90%;
   padding-bottom: 20px;
@@ -359,8 +340,9 @@ span {
   background-color: #0E385D;
   border-color: transparent;
 }
-#imageryAPI {
+#rightPopup {
   background-color: white;
+  background-color: yellow;
   height: 100%;
   padding: 0;
 }
@@ -401,20 +383,6 @@ div.esri-component.esri-popup {
 /* Standard syntax */
 @keyframes projectDesc {
   100%  {left:15px; top:700px;}
-}
-.gm_streetview {
-  height: 100%;
-}
-#g_stview {
-  float: left;
-  height: 100%;
-  width: 100%;
-}
-#g_map {
-  float: left;
-  height: 100%;
-  width: 100%;
-  display: none;
 }
 #content {
   margin-left: auto;

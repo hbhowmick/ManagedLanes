@@ -150,7 +150,6 @@ $(document).ready(function () {
           })
         });
         view.on("click", function(event) {
-          clickGraphics.removeAll();
           var extentGeom = pointToExtent(view, event.mapPoint, 10);
           function pointToExtent(view, point, toleranceInPixel) {
             var pixelWidth = view.extent.width / view.width; //calculate map coords represented per pixel
@@ -170,9 +169,10 @@ $(document).ready(function () {
           layer.queryFeatures(layerQuery).then(function(results) {
             // console.log("Results:", results.features);
             if (results.features.length>0) {
+              clickGraphics.removeAll();
               highlightLine(results.features[0].geometry, 'click')
               subCorridor = results.features[0].attributes.SubSegment
-              console.log('SubCorridor:', subCorridor);
+              console.log('\nSubCorridor:', subCorridor);
               $("#subCorrSelect").val(subCorridor);
               updateSQL(subCorridor);
             } else {
@@ -233,6 +233,7 @@ $(document).ready(function () {
     $("#subCorrSelect").change(function() {
       clickGraphics.removeAll();
       subCorridor = $("#subCorrSelect").val();
+      console.log('\nSubCorridor:', subCorridor);
       updateSQL(subCorridor);
       getGeom(corridors, 'SubSegment', $("#subCorrSelect").val()).then(function(result) {
         highlightLine(result, 'click');
@@ -250,6 +251,12 @@ $(document).ready(function () {
       }
       sqlFilter = subCorrSQL + " AND " + directionSQL
       console.log('SQL:', sqlFilter)
+      $("#viewDiv").css("height", "63%");
+      $("#togglePopupBtn").children(".close").css("display", "block");
+      $("#togglePopupBtn").children(".open").css("display", "none");
+      $("#togglePopupBtn").css("height", "10%");
+      $("#popupModalRow").css("display", "block");
+      $("#popupModal").css({"display":"block", "height":"37%"});
     };
 
     function getCorridor(subCorr) {

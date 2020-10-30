@@ -71,47 +71,24 @@
               </div>
             </div>
 
-            <!-- PROJECT MODAL -->
-            <!-- Re-Open Popup Button -->
-            <div class="col" id="reopenPopup-btn">
-              <span><i class="fa fa-angle-double-up"></i></span>
-            </div>
-            <!-- Close Popup Button -->
-            <div class="row w-100" id="closePopup-btn">
-              <span><i class="fa fa-angle-double-down"></i></span>
-            </div>
-            <div class="w-100 col-offset-5" id="projectModal">
-              <div class="row" id="projectContent">
+            <!-- POPUP MODAL -->
+            <div class="w-100 col-offset-5" id="popupModal">
+              <!-- Close/Re-Open Popup Button -->
+              <div class="row w-100" id="togglePopupBtn">
+                <span class="open"><i class="fa fa-angle-double-up"></i></span>
+                <span class="close"><i class="fa fa-angle-double-down"></i></span>
+              </div>
+
+              <div class="row" id="popupModalRow">
                 <!-- Popup Content -->
                 <div class="row justify-content-md-center" id="popupContent">
-                  <!-- POPUP -->
-                  <div class="col-md" id="popupDock">
-                    <div class="row" id="navigationArrows">
-                      <div class="arrow navArrows" id="leftArrow">
-                        <i class="fas fa-angle-left"></i>
-                      </div>
-                      <div class="navArrows" id="popupCount">
-                        <div class="d-inline" id="popupIndex">1</div>
-                        <div class="d-inline">of</div>
-                        <div class="d-inline" id="popupTotal">1</div>
-                      </div>
-                      <div class="arrow navArrows" id="rightArrow">
-                        <i class="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                    <div class="row" id="backBtnRow">
-                      <button class='btn btn-info' id='backToModes'>
-                        <span aria-hidden='true' class='esri-popup__icon esri-icon-undo'></span>
-                        Go Back
-                      </button>
-                    </div>
-                    <div class="row" id="popupContainer"></div>
+                  <!-- Origin -->
+                  <div class="col-6" id="leftPopup">
+                    <div class="row sideContent" id="leftContent"></div>
                   </div>
-                  <!-- APIs -->
-                  <div class="col-md" id="imageryAPI">
-                    <div class="gm_streetview">
-                      <div id="g_map"></div>
-                      <div id="g_stview"></div>
+                  <!-- Destination -->
+                  <div class="col-6" id="rightPopup">
+                    <div class="row sideContent" id="rightContent">
                     </div>
                   </div>
                 </div>

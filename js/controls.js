@@ -40,20 +40,24 @@ $(document).ready(function () {
       var err = textStatus + ", " + error;
     });
 
-		$("#closePopup-btn").click(function() {
-		  $("#projectModal").css("display", "none");
-			$("#closePopup-btn").css("display", "none");
-		  $("#viewDiv").css("height", "96%");
-			$("#reopenPopup-btn").css("display", "block");
-			$("#reopenPopup-btn").css("height", "4%");
-		})
-
-		$("#reopenPopup-btn").click(function() {
-			$("#projectModal").css("display", "block");
-			$("#viewDiv").css("height", "59%");
-			$("#projectModal").css("height", "37%");
-			$("#closePopup-btn").css("display", "block");
-			$("#reopenPopup-btn").css("display", "none");
+		$("#togglePopupBtn").click(function() {
+			if($("#togglePopupBtn").children(".close").css("display")=="block") {
+				console.log("Closing...");
+				$("#togglePopupBtn").children(".close").css("display", "none");
+				$("#togglePopupBtn").children(".open").css("display", "block");
+				$("#viewDiv").css("height", "96.3%");
+				$("#togglePopupBtn").css("height", "100%");
+				$("#popupModalRow").css("display", "none");
+				$("#popupModal").css("height", "3.7%");
+			} else {
+				console.log("Re-opening...");
+				$("#togglePopupBtn").children(".close").css("display", "block");
+				$("#togglePopupBtn").children(".open").css("display", "none");
+				$("#viewDiv").css("height", "63%");
+				$("#togglePopupBtn").css("height", "10%");
+				$("#popupModalRow").css("display", "block");
+				$("#popupModal").css("height", "37%");
+			}
 		})
 
 		$("#helpContent").on("click", "button", function() {
