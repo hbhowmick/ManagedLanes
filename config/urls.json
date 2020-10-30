@@ -1,0 +1,7 @@
+{
+  "urls": {
+    "corridors": "https://gisstg.massdot.state.ma.us/arcgis/rest/services/ODMatrix/ManagedLaneSections/MapServer/0",
+    "municipalities": "https://gisstg.massdot.state.ma.us/arcgis/rest/services/ODMatrix/ManagedLaneSections/MapServer/1",
+    "OD_totals": "https://gisstg.massdot.state.ma.us/arcgis/rest/services/ODMatrix/ManagedLaneSections/MapServer/2"
+  }
+}

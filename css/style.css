@@ -1,0 +1,437 @@
+html, body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  color: #4d4d4d;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+#outsideContainer{
+  padding: 0px;
+  height: 100vh;
+  width: 100%;
+}
+nav {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #14558f !important;
+}
+.navbar-custom {
+	color: white;
+  text-align: center;
+}
+#navbarCollapse {
+  position: absolute;
+  top: 5px;
+  min-width: 35%;
+  max-width: 40%;
+}
+#helpBtn {
+  display: block;
+  float: right;
+  background-color: white;
+}
+#helpContent {
+  display: block;
+  background-color: white;
+  width: 500px;
+  height: auto;
+  z-index: 100;
+  position: fixed;
+  top: 28%;
+  left: 34.5%;
+  padding: 60px 30px 30px 30px;
+  color: black;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+#helpContent>h4 {
+  font-size: 2rem;
+  padding-bottom: 10px;
+}
+#helpContent>h6 {
+  font-size: 1.5rem;
+}
+#helpContent>p, #helpContent>ol {
+  font-size: 1.2rem;
+}
+#helpContent>p.note {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+#helpContent>button {
+  border: none;
+  background-color: #C9C9C9;
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  font-variant: small-caps;
+  padding: 10px;
+}
+#helpModal {
+  display: block;
+  display:none;
+  background-color: rgba(50,50,50,0.7);
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+#translateBtn {
+  display: block;
+  float: right;
+  padding: 0;
+}
+.topnav-support {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 0px;
+}
+.nav-link {
+  color: #FFFFFF;
+  padding: 6px;
+}
+nav a {
+  font-size: 320% !important;
+  height: 7% !important;
+}
+.navbar-brand {
+  position: relative;
+  text-align: center;
+  color: white !important;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  text-shadow: 3px 3px rgba(120,120,120,0.2);
+}
+#loadingScreen {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 96%;
+  background-color: rgba(0,0,0,0.4);
+  padding: 0;
+}
+.main {
+  padding: 0px;
+  height: 96%;
+}
+.col {
+  height: auto;
+  padding-right: 0px;
+}
+.row {
+  margin: 0;
+}
+#dropDowns {
+  position: absolute;
+  top: 3.5%;
+  right: 3%;
+  width: auto;
+}
+.dropdown {
+  width: auto;
+  min-width: 150px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.goog-te-menu-value {
+  padding: 1px 2px !important;
+  font-size: 13px !important;
+}
+span {
+  margin: 0 auto;
+}
+.bold {
+  font-weight: bold;
+}
+.justify-content-md-center {
+  margin-left: 0px;
+}
+#popupContainer.esri-widget {
+  display: block;
+  background-color: transparent;
+}
+.esri-legend--stacked {
+  min-width: 50px;
+}
+.esri-legend--card__section {
+  min-width: 0px;
+  width: 100% !important;
+}
+.esri-legend--card__carousel-title {
+  margin-bottom: 12px;
+}
+.esri-legend--card__layer-caption {
+  display: none;
+}
+.esri-view, .esri-view-root, .esri-view-surface {
+  width: 100% !important;
+}
+.esri-attribution {
+  visibility: hidden;
+}
+.esri-popup__header-title {
+  font-weight: bold;
+}
+.esri-popup__header-title:after {
+  content:'';
+  display: block;
+  margin: 0 auto;
+  width:100%;
+  height: 100vh;
+  padding-top: 10px;
+  border-bottom:1px solid #BDBDBD;
+}
+.img-fluid {
+  position: absolute;
+  left: 0px;
+  padding: 15px 20px 0px 35px;
+}
+.p-3 {
+  padding: 0 !important;
+}
+/* .filterBox {
+  padding: 15px 0px;
+  width: 100%;
+}
+.filterHeading {
+  font-weight: bold;
+} */
+.filterLabel {
+  color: black;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  background-color: #e8e8e8;
+  border-radius: 6px;
+  padding: 8px 8px 12px 8px;
+  margin-bottom: 0;
+  position: relative;
+  top: 8px;
+}
+.bottomMargin {
+  margin-bottom: 20px;
+}
+.zeroPadding {
+  padding: 0 !important;
+}
+#google_translate_element {
+  display: block;
+  float: left;
+  margin: 0px 10px;
+}
+.floatBottom {
+  position: fixed;
+  bottom: 25px;
+}
+#mainPanel {
+  display: block;
+  height: 100%;
+  padding: 0px;
+}
+.fullHeight {
+  height: 100%;
+  overflow-y: auto;
+}
+.mostHeight {
+  height: 90%;
+}
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+.btn:focus {
+  box-shadow: none;
+}
+#mapCol {
+  height: 100%;
+  padding: 0 !important;
+}
+.h_3pct {
+  height: 3%;
+}
+#viewDiv {
+  height: 100%;
+}
+#closePopup-btn, #reopenPopup-btn {
+  color: #464648;
+  height: 4%;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #e6e6e6;
+  text-align: center;
+  padding-top: 5px;
+}
+#closePopup-btn {
+  display: none;
+}
+#reopenPopup-btn {
+  display: none;
+}
+#projectModal {
+  display: none;
+  -webkit-animation-name: projectDesc; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.25s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+  animation-name: projectDesc;
+  animation-duration: 0.25s;
+  animation-direction: reverse;
+  background-color: #c1c1c1;
+  height: 37%;
+}
+#projectContent {
+  margin: 0px auto;
+  height: 100%;
+}
+#popupContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#closePopup-btn:hover,
+#closePopup-btn:focus,
+#reopenPopup-btn:hover,
+#reopenPopup-btn:focus  {
+  color: rgba(210,210,210,1);
+  text-decoration: none;
+  cursor: pointer;
+}
+#popupDock {
+  display: block;
+  padding: 15px;
+  height: 100%;
+  background-color: #e6e6e6;
+}
+/* #navigationArrows {
+  display: inline-block;
+  width: 100%;
+  float: right;
+  padding-bottom: 8px;
+  text-align: right;
+}
+.navArrows {
+  display: inline-block;
+  padding: 0px 3px;
+  font-weight: bold;
+}
+.arrow:hover {
+  color: grey;
+} */
+#popupContainer {
+  width: 100%;
+  height: 90%;
+  padding-bottom: 20px;
+}
+.btn-info {
+  background-color: #14558f;
+  border-color: transparent;
+  font-family: Verdana, Geneva, sans-serif;
+  letter-spacing: 0.1px;
+}
+.btn-info:hover {
+  background-color: #0E385D;
+  border-color: transparent;
+}
+#imageryAPI {
+  background-color: white;
+  height: 100%;
+  padding: 0;
+}
+.h-auto {
+  height: auto;
+  min-height: 8%;
+}
+.leftHeader {
+  text-align: left;
+  padding: 20px 10px 10px 15px;
+  font-size: 30px;
+  margin-bottom: 0 !important;
+}
+#pinfoLink {
+  font-size: 12px;
+  color: #C8C8C8;
+  font-style: italic;
+}
+#pinfoLink:hover {
+  text-decoration: none;
+  color: black;
+}
+div.esri-component.esri-popup {
+  position: absolute !important;
+  bottom: 0;
+}
+.esri-feature__title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  width:100%;
+  border-bottom:1px solid #BDBDBD;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes projectDesc {
+  100% {left:15px; top:700px;}
+}
+/* Standard syntax */
+@keyframes projectDesc {
+  100%  {left:15px; top:700px;}
+}
+.gm_streetview {
+  height: 100%;
+}
+#g_stview {
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+#g_map {
+  float: left;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  width: 95%;
+  height: 4.5em;
+  text-align: center;
+}
+.spinner-border {
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+.currentProject {
+  color: white;
+  margin: 0 0 10px 20px;
+}

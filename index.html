@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Managed Lanes Viewer - STG Version</title>
+
+<script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest" SameSite=None Secure></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" SameSite=None Secure></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" SameSite=None Secure></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" SameSite=None Secure />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" SameSite=None Secure></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" SameSite=None Secure />
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?client=gme-commonwealthofmassachusetts&channel=dotsv&callback">
+</script> -->
+<link rel="stylesheet" href="https://js.arcgis.com/4.17/esri/themes/light/main.css" SameSite=None Secure />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+  <div id="outsideContainer" class="container-fluid d-flex flex-column">
+    <!-- NAVBAR -->
+    <nav class="navbar-expand-sm s-navbar navbar-custom w-100">
+      <img src="images/massdot_logo.png" class="img-fluid" alt="MassDOT Logo">
+      <a class="navbar-brand">Managed Lanes Viewer</a>
+      <!-- Help/Google Translate -->
+      <div class="topnav topnav-support" id="navbarCollapse">
+        <div class="btn my-2 my-sm-0" id="translateBtn">
+          <div id="google_translate_element"></div>
+        </div>
+        <div class="h_3pct btn" id="helpBtn">Help</div>
+        <div id="helpModal">
+          <div id="helpContent">
+            <button><span aria-hidden="true">close</span></button>
+            <h4 class="center">Welcome to the Managed Lanes Viewer</h4>
+            <p>This tool allows users to explore and visualize congestion and origin-destination characteristics of MassDOT-managed lanes. To get started, either use the dropdowns in the upper right corner or use your mouse to click a section of roadway on the map. Upon selection, a popup will appear below the map with origin-destination information for the selected subcorridor.</p>
+            <p>Congestion can be explored by the hour. Origin-destinations can be explored by direction of the roadway.</p>
+            <p>Zoom/pan to a location on the map using your mouse or the +/- buttons and arrow keys.</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- MAIN PAGE -->
+    <div class="row main">
+      <!-- LOADING WHEEL -->
+      <div class="col-12" id="loadingScreen">
+        <div class="spinner-border text-light"></div>
+      </div>
+      <!-- MAIN PANEL -->
+      <div class= "col" id="mainPanel">
+        <div class="row fullHeight">
+          <!-- MAP -->
+          <div class="col" id="mapCol">
+            <!-- View -->
+            <div id="viewDiv">
+              <!-- Congestion Time Dropdown -->
+              <div id='dropDowns'>
+                <label class="filterLabel" for="subCorrSelect">Sub-Corridor</label>
+                <select class="form-control dropdown filter" name="subCorr" id="subCorrSelect">
+                  <option value="None" disabled selected hidden>Select Sub-Corridor</option>
+                </select>
+                <!-- <label class="filterLabel" for="congestionSelect">Congestion Hour</label> -->
+                <!-- <select class="form-control dropdown filter" name="congestion" id="congestionSelect">
+                  <option value="" disabled selected hidden>Select Congestion Time</option>
+                </select> -->
+              </div>
+            </div>
+
+            <!-- PROJECT MODAL -->
+            <!-- Re-Open Popup Button -->
+            <div class="col" id="reopenPopup-btn">
+              <span><i class="fa fa-angle-double-up"></i></span>
+            </div>
+            <!-- Close Popup Button -->
+            <div class="row w-100" id="closePopup-btn">
+              <span><i class="fa fa-angle-double-down"></i></span>
+            </div>
+            <div class="w-100 col-offset-5" id="projectModal">
+              <div class="row" id="projectContent">
+                <!-- Popup Content -->
+                <div class="row justify-content-md-center" id="popupContent">
+                  <!-- POPUP -->
+                  <div class="col-md" id="popupDock">
+                    <div class="row" id="navigationArrows">
+                      <div class="arrow navArrows" id="leftArrow">
+                        <i class="fas fa-angle-left"></i>
+                      </div>
+                      <div class="navArrows" id="popupCount">
+                        <div class="d-inline" id="popupIndex">1</div>
+                        <div class="d-inline">of</div>
+                        <div class="d-inline" id="popupTotal">1</div>
+                      </div>
+                      <div class="arrow navArrows" id="rightArrow">
+                        <i class="fas fa-angle-right"></i>
+                      </div>
+                    </div>
+                    <div class="row" id="backBtnRow">
+                      <button class='btn btn-info' id='backToModes'>
+                        <span aria-hidden='true' class='esri-popup__icon esri-icon-undo'></span>
+                        Go Back
+                      </button>
+                    </div>
+                    <div class="row" id="popupContainer"></div>
+                  </div>
+                  <!-- APIs -->
+                  <div class="col-md" id="imageryAPI">
+                    <div class="gm_streetview">
+                      <div id="g_map"></div>
+                      <div id="g_stview"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,ht,it,km,ko,pl,pt,ru,vi,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  }
+  </script>
+  <script src="https://js.arcgis.com/4.17/" SameSite=None Secure></script>
+  <script src="js/controls.js"></script>
+  <script src="js/map.js"></script>
+
+</body>
+</html>
